@@ -7,7 +7,7 @@
 <script src="{{ $.Site.BaseURL }}{{ . }}"></script>
 {{ end }}
 
-{{ if .Site.Params.enableGoogleAnalytics }}
+{{ if (and (.Site.Params.enableGoogleAnalytics) (not .Site.IsServer)) }}
   {{ template "_internal/google_analytics.html" . }}
 {{ end }}
 
